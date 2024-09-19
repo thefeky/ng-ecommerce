@@ -1,0 +1,92 @@
+body {
+  text-transform: capitalize;
+}
+.card {
+  width: 80%;
+  margin: 0 auto;
+}
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card-body h5 {
+  color: #2d9f25;
+  margin: 20px;
+}
+
+.rating {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.rating fa-icon {
+  margin-right: 0.1rem;
+}
+.price {
+  font-size: 25px;
+}
+.price-info {
+  margin: 20px 0;
+  padding: 10px;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+.more-info span {
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #2d9f25;
+}
+.btns button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 1px solid #2d9f25;
+  color: #2d9f25;
+  background-color: transparent;
+  text-transform: capitalize;
+  font-size: 16px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  margin-right: 20px;
+}
+.btns button:hover {
+  background-color: #2d9f25;
+  color: #fff;
+  transform: scale(0.99);
+  -webkit-transform: scale(0.99);
+  -moz-transform: scale(0.99);
+  -ms-transform: scale(0.99);
+  -o-transform: scale(0.99);
+}
+.stock {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.stock + p {
+  margin-top: 0px !important;
+  font-size: 14px;
+}
+.stock span {
+  color: #2d9f25;
+}
+
+.add-to-cart button {
+  background-color: #e6e6e6;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: none;
+  font-weight: bold;
+}
+span {
+  display: inline-block;
+  /* width: 50px; */
+  text-align: center;
+}

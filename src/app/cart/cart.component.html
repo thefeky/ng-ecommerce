@@ -1,0 +1,65 @@
+<div *ngIf="cartProducts.length > 0; else emptyCart" class="cart-container">
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Remove</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cartProducts; trackBy: trackByProduct">
+        <td>
+          <img [src]="product.data.images[0]" class="product-image" />
+        </td>
+        <td>
+          <p class="product-title">{{ product.data.title }}</p>
+        </td>
+        <td>
+          <div class="quantity-controls">
+            <button
+              (click)="increAmount(product)"
+              [disabled]="product.amount === product.data.stock"
+              class="quantity-btn"
+            >
+              +
+            </button>
+            <span class="quantity">{{ product.amount }}</span>
+            <button
+              (click)="decreAmount(product)"
+              [disabled]="product.amount === 1"
+              class="quantity-btn"
+            >
+              -
+            </button>
+          </div>
+        </td>
+        <td>
+          <button (click)="removeItem(product)" class="remove-btn">
+            &times;
+            <!-- Unicode times symbol -->
+          </button>
+        </td>
+        <td>
+          <p class="product-price">
+            {{ (product.data.price * product.amount).toFixed(2) }} EGP
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cart-summary">
+    <p>
+      Total: <span>{{ totalPrice.toFixed(2) }} EGP</span>
+    </p>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <p>Your cart is empty</p>
+  </div>
+</ng-template>

@@ -1,0 +1,99 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="w-50 m-auto">
+  <div class="form-group">
+    <label class="form-label" for="name"> {{ "Name" | uppercase }}</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="Enter Name"
+      name="name"
+      formControlName="name"
+    />
+    @if(name?.invalid && name?.touched){ @if(name?.hasError('required')) {
+    <p class="form-text text-danger">Name is required</p>
+    } } @if(name?.hasError('minlength')) {
+    <p class="form-text text-danger">Name must be at least 3 characters long</p>
+    }
+  </div>
+  <div class="form-group my-3">
+    <label class="form-label" for="email">{{ "Email" | uppercase }}</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="form-control"
+      name="email"
+      formControlName="email"
+    />
+    @if(email?.invalid && email?.touched){ @if(email?.hasError('required')) {
+    <p class="form-text text-danger">Email is required</p>
+    } } @if(email?.hasError('email')) {
+    <p class="form-text text-danger">Invalid email</p>
+    }
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="userName">{{
+      "userName" | uppercase
+    }}</label>
+    <input
+      type="text"
+      name="userName"
+      id="userName"
+      class="form-control"
+      name="userName"
+      formControlName="userName"
+    />
+    @if(userName?.invalid && userName?.touched){
+    @if(userName?.hasError('required')) {
+    <p class="form-text text-danger">Username is required</p>
+    } } @if(userName?.hasError('userName')) {
+    <p class="form-text text-danger">Invalid username</p>
+    }
+  </div>
+  <div class="form-group my-3">
+    <label class="form-label" for="password">{{
+      "Password" | uppercase
+    }}</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      class="form-control"
+      name="password"
+      formControlName="password"
+    />
+    @if(password?.invalid && password?.touched){
+    @if(password?.hasError('required')) {
+    <p class="form-text text-danger">Password is required</p>
+    } @if(password?.hasError('pattern')) {
+    <p class="form-text text-danger">
+      Password must be at least 8 characters long, one lowercase, one uppercase,
+      at least one digit and a special character
+    </p>
+    } }
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="confirmPassword">{{
+      "Confirm Password" | uppercase
+    }}</label>
+    <input
+      type="password"
+      name="confirmPassword"
+      id="confirmPassword"
+      class="form-control"
+      name="confirmPassword"
+      formControlName="confirmPassword"
+    />
+    @if(confirmPassword?.invalid && confirmPassword?.touched){
+    @if(confirmPassword?.hasError('required')) {
+    <p class="form-text text-danger">Please confirm your password!</p>
+    } @if(confirmPassword?.hasError('mustMatch')) {
+    <p class="form-text text-danger">Passwords must match</p>
+    } }
+  </div>
+  <button type="submit" class="btn btn-primary mt-3 w-100">Register</button>
+</form>
+<p class="text-center">
+  Already have an account?
+  <a routerLink="/login" class="text-decoration-underline">Login</a>
+</p>

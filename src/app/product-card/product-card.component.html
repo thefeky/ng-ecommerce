@@ -1,0 +1,46 @@
+<div class="product-card">
+  <div class="image-container">
+    <p
+      class="stock-status"
+      [ngClass]="{
+        'in-stock': product.stock > 0,
+        'out-of-stock': product.stock === 0
+      }"
+    >
+      {{ product.stock === 0 ? "Out of stock" : "In stock" }}
+    </p>
+    <img
+      [src]="product.images[0]"
+      (click)="redirectToDetails(product.id)"
+      class="product-image"
+      alt="Product image"
+    />
+  </div>
+  <div class="details">
+    <h4 class="product-title">{{ product.title }}</h4>
+    <p class="price">{{ product.price | currency }}</p>
+    <div class="rating">
+      <ng-container *ngFor="let star of stars">
+        <fa-icon
+          [icon]="faStar"
+          [ngClass]="{
+            'text-warning': star <= product.rating,
+            'text-secondary': star > product.rating
+          }"
+        ></fa-icon>
+      </ng-container>
+    </div>
+    <div class="action-buttons">
+      <button
+        class="action-btn"
+        (click)="addToCart(product.id)"
+        [disabled]="amount === product.stock"
+      >
+        Add to Cart
+      </button>
+      <button class="details-btn" (click)="redirectToDetails(product.id)">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>

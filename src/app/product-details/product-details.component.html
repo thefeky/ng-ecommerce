@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4 col-lg-6">
+      <img
+        [src]="productsDetail.thumbnail"
+        class="img-fluid rounded-start"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-8 col-lg-6">
+      <div class="card-body">
+        <h5 class="card-title">{{ productsDetail.title }}</h5>
+        <p class="card-text">{{ productsDetail.description }}</p>
+        <div class="rating">
+          <ng-container *ngFor="let star of stars">
+            <fa-icon
+              [icon]="faStar"
+              [ngClass]="{
+                'text-warning': star <= productsDetail.rating,
+                'text-secondary': star > productsDetail.rating
+              }"
+            ></fa-icon>
+          </ng-container>
+        </div>
+        <div class="price-info">
+          <p class="card-text price">${{ productsDetail.price }}</p>
+          <p class="card-text">{{ productsDetail.shippingInformation }}</p>
+        </div>
+        <div>
+          <h6>More Information</h6>
+          <p class="more-info">
+            <span>Brand:</span> {{ productsDetail.brand }}
+          </p>
+          <p class="more-info">
+            <span>Category:</span> {{ productsDetail.category }}
+          </p>
+        </div>
+        <div>
+          <div class="add-to-cart">
+            <button
+              (click)="increAmount()"
+              [disabled]="amount === productsDetail.stock"
+            >
+              +
+            </button>
+            <span>{{ amount }}</span>
+            <button (click)="decreAmount()" [disabled]="amount == 0">-</button>
+          </div>
+          <p class="stock">
+            Only <span>{{ productsDetail.stock }} left</span>
+          </p>
+          <p>Don't miss it!</p>
+        </div>
+        <div class="btns">
+          <button>Buy Now</button>
+          <button
+            (click)="addToCart(productsDetail.id)"
+            [disabled]="amount === productsDetail.stock || amount == 0"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

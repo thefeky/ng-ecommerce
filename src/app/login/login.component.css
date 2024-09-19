@@ -1,0 +1,37 @@
+form {
+  background-color: #c6e5fa;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-weight: bold;
+  color: #4c4c4c;
+}
+
+.form-control {
+  border-radius: 4px;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.form-text {
+  font-size: 0.875rem;
+  color: #db0000;
+}
+
+button {
+  background-color: #1b7fc2;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+p.text-center {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
